@@ -2,14 +2,13 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-import Brand from "./brand"
+import Brand from "../Brand/Brand"
+import Menu from "../Menu/Menu"
 
 const Header = ({ siteTitle }) => (
-  <header>
+  <header class="c-header">
     <Brand siteTitle={siteTitle} />
-    <Link to="/about/">
-      About
-    </Link>
+    <Menu />
   </header>
 )
 

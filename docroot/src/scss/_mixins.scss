@@ -1,0 +1,11 @@
+/**
+ * @file
+ * Mixins.
+ */
+
+// Set styles for inclusion only above a screen size.
+@mixin breakpoint-min($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}

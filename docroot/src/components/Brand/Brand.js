@@ -3,11 +3,11 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Brand = ({ siteTitle }) => (
-  <h1>
+  <h1 class="c-brand c-header__brand">
     <Link
       to="/"
     >
-      {siteTitle}
+      Find<span class="c-brand__space"> </span><span class="c-brand--lighter">My</span><span class="c-brand__space"> </span>Song
     </Link>
   </h1>
 )

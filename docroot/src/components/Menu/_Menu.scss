@@ -1,0 +1,8 @@
+.c-menu {
+  &__link {
+    color: map-get($colors, 'grey800');
+    font-family: $font-family-sans-serif-secondary;
+    font-weight: 500;
+    text-decoration: none;
+  }
+}

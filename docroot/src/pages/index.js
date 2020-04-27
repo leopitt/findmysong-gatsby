@@ -1,14 +1,14 @@
 import React from "react"
 
-import Layout from "../components/layout"
-import NameForm from "../components/name-form"
+import Intro from "../components/Intro/Intro"
+import Layout from "../components/Layout/Layout"
+import NameForm from "../components/NameForm/NameForm"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Use this site to find songs with your name in the lyrics.</h1>
-    <h2>What's your name?</h2>
+    <Intro />
     <NameForm />
   </Layout>
 )

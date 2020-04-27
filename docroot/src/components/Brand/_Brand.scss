@@ -1,0 +1,18 @@
+.c-brand {
+  font-size: $font-size-brand;
+  text-transform: lowercase;
+
+  &,
+  > a {
+    color: map-get($colors, 'blue500');
+    text-decoration: none;
+  }
+
+  &--lighter {
+    color: map-get($colors, 'brand-secondary');
+  }
+
+  &__space {
+    font-size: 0;
+  }
+}

@@ -1,0 +1,14 @@
+.c-header {
+  position: relative;
+
+  &__brand,
+  &__menu {
+    padding: 60px 0;
+  }
+
+  &__menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

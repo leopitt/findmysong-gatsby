@@ -1,0 +1,28 @@
+.c-intro {
+  max-width: 840px;
+  padding: 74px 0;
+
+  &__statement {
+    &::after {
+      content: ' ';
+    }
+  }
+
+  &__question {
+    color: map-get($colors, 'orange500');
+  }
+
+  &__item {
+    display: inline;
+    font-size: $font-size-h1;
+    font-weight: 800;
+
+    @media (min-width: map-get($breakpoints, 'sm-min')) {
+      font-size: $font-size-h1-lg;
+    }
+
+    @media (min-width: map-get($breakpoints, 'md-min')) {
+      font-size: $font-size-h1-xl;
+    }
+  }
+}
