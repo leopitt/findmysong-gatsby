@@ -16,6 +16,7 @@ export default class NameForm extends React.Component {
     this.setState({
       [name]: value,
     })
+    // Form is valid when the input value is set.
     if (value.length > 0) {
       this.setState({
         isFormValid: true,
@@ -29,7 +30,7 @@ export default class NameForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`Welcome ${this.state.firstName} ${this.state.lastName}!`)
+    alert(`Submitted ${this.state.inputName}`)
   }
 
   render() {
