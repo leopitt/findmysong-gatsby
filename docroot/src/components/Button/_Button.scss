@@ -1,0 +1,28 @@
+.c-button {
+  &--big-text {
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    color: map-get($colors, 'blue500');
+    font-size: $font-size-h2;
+    font-weight: 800;
+    text-decoration: none;
+    transition: opacity .25s ease-in-out;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: .5;
+    transition: opacity .25s ease-in-out;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
