@@ -30,7 +30,27 @@ export default class NameForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`Submitted ${this.state.inputName}`)
+    // See https://reactjs.org/docs/faq-ajax.html
+    fetch(`http://admin.findmysong.function-designing.co.uk/lyric-lookup/${this.state.inputName}`)
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          console.log('Response status not 200. Status Code: ' +
+            response.status);
+          return;
+        }
+
+        // Examine the text in the response.
+        response.json().then(function(data) {
+          console.log(data);
+        });
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :-S', err);
+    });
+
+    console.log(`Submitted ${this.state.inputName}`)
   }
 
   render() {
