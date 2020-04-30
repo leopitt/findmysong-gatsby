@@ -4,11 +4,17 @@ import React from "react"
 import Button from "../Button/Button"
 
 export default class NameForm extends React.Component {
-  state = {
-    inputName: "",
-    isFormValid: false,
+  constructor(props) {
+    super(props);
+    this.handleResults = this.handleResults.bind(this);
+    this.handleError = this.handleError.bind(this);
+    this.state = {
+      inputName: "",
+      isFormValid: false,
+    }
   }
 
+  // Handle input field change.
   handleInputChange = event => {
     const target = event.target
     const value = target.value
@@ -28,36 +34,40 @@ export default class NameForm extends React.Component {
     }
   }
 
+  handleResults = (data) => {
+    this.props.onResultsChange(data);
+  }
+
+  handleError = (err) => {
+    console.log('Fetch Error :-S', err);
+    this.props.onResultsChange({});
+  }
+
+  // Handle form submit.
   handleSubmit = event => {
     event.preventDefault()
     // See https://reactjs.org/docs/faq-ajax.html
     fetch(`http://admin.findmysong.function-designing.co.uk/lyric-lookup/${this.state.inputName}`)
-    .then(
-      function(response) {
+      .then(response => {
         if (response.status !== 200) {
           console.log('Response status not 200. Status Code: ' +
             response.status);
           return;
         }
-
-        // Examine the text in the response.
-        response.json().then(function(data) {
-          console.log(data);
-        });
-      }
-    )
-    .catch(function(err) {
-      console.log('Fetch Error :-S', err);
-    });
+        return response.json()
+      })
+      .then(data => this.handleResults(data))
+      .catch(err => this.handleError(err))
 
     console.log(`Submitted ${this.state.inputName}`)
   }
 
+  // Render the form.
   render() {
     return <form
       method="post"
-      class="c-nameform"
-     onSubmit={this.handleSubmit}
+      className="c-nameform"
+      onSubmit={this.handleSubmit}
     >
       <p>My name is
         <input
@@ -73,9 +83,9 @@ export default class NameForm extends React.Component {
 }
 
 NameForm.propTypes = {
-  inputName: PropTypes.string,
+  onResultsChange: PropTypes.func,
 }
 
 NameForm.defaultProps = {
-  inputName: ``,
+  onResultsChange: null,
 }

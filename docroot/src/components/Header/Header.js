@@ -5,7 +5,7 @@ import Brand from "../Brand/Brand"
 import Menu from "../Menu/Menu"
 
 const Header = ({ siteTitle }) => (
-  <header class="c-header">
+  <header className="c-header">
     <Brand siteTitle={siteTitle} />
     <Menu />
   </header>

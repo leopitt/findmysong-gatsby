@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-const Page = ({ children }) => {
+const Page = ({ rows, children }) => {
   return (
     <main>{children}</main>
   )
