@@ -22,8 +22,6 @@ export default class NameForm extends React.Component {
     const value = target.value
     let size = this.minSize
 
-    console.log(value)
-
     if (value.length === 0) {
       size = this.minSize
     } else {
