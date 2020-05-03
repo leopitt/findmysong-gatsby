@@ -1,0 +1,7 @@
+.c-results-table {
+  max-width: 840px;
+
+  &__head {
+    @extend %hidden;
+  }
+}

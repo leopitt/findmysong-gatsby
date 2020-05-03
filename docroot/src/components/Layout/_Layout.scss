@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding-left: map-get($breakpoints, 'padding-sm');
   padding-right: map-get($breakpoints, 'padding-sm');
+  padding-bottom: 4rem;
 
   @media (min-width: map-get($breakpoints, 'sm-min')) {
     max-width: map-get($breakpoints, 'sm-min');

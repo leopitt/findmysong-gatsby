@@ -1,4 +1,21 @@
 .c-nameform {
   font-size: $font-size-h2;
   font-weight: 800;
+
+  &__label {
+    display: block;
+    line-height: 1.9;
+    margin: 2rem 0;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    border-bottom-color: map-get($colors, 'black');
+    border-width: 0 0 2px;
+    color: map-get($colors, 'orange500');
+    font-size: $font-size-h2;
+    font-weight: 800;
+    margin: 0 .5rem;
+    max-width: 25rem;
+  }
 }

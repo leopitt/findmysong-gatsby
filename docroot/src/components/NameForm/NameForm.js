@@ -6,11 +6,13 @@ import Button from "../Button/Button"
 export default class NameForm extends React.Component {
   constructor(props) {
     super(props);
+    this.minSize = 4;
     this.handleResults = this.handleResults.bind(this);
     this.handleError = this.handleError.bind(this);
     this.state = {
       inputName: "",
       isFormValid: false,
+      size: 4,
     }
   }
 
@@ -18,10 +20,21 @@ export default class NameForm extends React.Component {
   handleInputChange = event => {
     const target = event.target
     const value = target.value
-    const name = target.name
+    let size = this.minSize
+
+    console.log(value)
+
+    if (value.length === 0) {
+      size = this.minSize
+    } else {
+      size = value.length
+    }
+
     this.setState({
-      [name]: value,
+      inputName: value,
+      size: size,
     })
+
     // Form is valid when the input value is set.
     if (value.length > 0) {
       this.setState({
@@ -39,7 +52,6 @@ export default class NameForm extends React.Component {
   }
 
   handleError = (err) => {
-    console.log('Fetch Error :-S', err);
     this.props.onResultsChange({});
   }
 
@@ -58,8 +70,6 @@ export default class NameForm extends React.Component {
       })
       .then(data => this.handleResults(data))
       .catch(err => this.handleError(err))
-
-    console.log(`Submitted ${this.state.inputName}`)
   }
 
   // Render the form.
@@ -69,15 +79,17 @@ export default class NameForm extends React.Component {
       className="c-nameform"
       onSubmit={this.handleSubmit}
     >
-      <p>My name is
+      <label className="c-nameform__label">My name is
         <input
-          type="text"
-          required="required"
+          className="c-nameform__input"
+          size={this.state.size}
           name="inputName"
-          value={this.state.inputName}
           onChange={this.handleInputChange}
+          required="required"
+          type="text"
+          value={this.state.inputName}
         />,
-        <Button className="c-button c-button--big-text c-button--disabled" disabled={!this.state.isFormValid} label="find my song" />.</p>
+        <Button className="c-button c-button--big-text c-button--disabled" disabled={!this.state.isFormValid} label="find my song" />.</label>
     </form>
   }
 }

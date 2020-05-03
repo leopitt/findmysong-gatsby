@@ -1,12 +1,22 @@
 import React from "react"
 
+import ResultsTableRow from "../ResultsTableRow/ResultsTableRow"
+
 export default class ResultsTable extends React.Component {
+
+  renderTableData () {
+    return this.props.tracks.map((track, key) => {
+       return (
+          <ResultsTableRow key={key} title={track.title} artist={track.artist} />
+       )
+    })
+  }
+
   render () {
     const tracks = this.props.tracks
     if (tracks && tracks.length > 0) {
-      console.log(tracks)
       return <table className="c-results-table">
-          <thead>
+          <thead className="c-results-table__head">
             <tr>
               <th>Title</th>
               <th>Artist</th>
@@ -15,6 +25,7 @@ export default class ResultsTable extends React.Component {
             </tr>
           </thead>
           <tbody>
+            {this.renderTableData()}
           </tbody>
         </table>
     } else {
