@@ -23,6 +23,7 @@ export default class IndexPage extends React.Component {
       tracks.push({
         title: item.track.track_name,
         artist: item.track.artist_name,
+        spotify_id: item.track.spotify_id,
       });
     }
     this.setState({ tracks: tracks});

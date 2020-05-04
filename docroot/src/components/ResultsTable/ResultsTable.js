@@ -7,7 +7,7 @@ export default class ResultsTable extends React.Component {
   renderTableData () {
     return this.props.tracks.map((track, key) => {
        return (
-          <ResultsTableRow key={key} title={track.title} artist={track.artist} />
+          <ResultsTableRow key={key} title={track.title} artist={track.artist} spotify_id={track.spotify_id} />
        )
     })
   }
