@@ -7,12 +7,15 @@ export default class NameForm extends React.Component {
   constructor(props) {
     super(props);
     this.minSize = 4;
+    this.sizePad = 1;
     this.handleResults = this.handleResults.bind(this);
     this.handleError = this.handleError.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.state = {
       inputName: "",
       isFormValid: false,
       size: 4,
+      hasBeenSearched: false,
     }
   }
 
@@ -25,7 +28,7 @@ export default class NameForm extends React.Component {
     if (value.length === 0) {
       size = this.minSize
     } else {
-      size = value.length
+      size = value.length + this.sizePad
     }
 
     this.setState({
@@ -53,9 +56,22 @@ export default class NameForm extends React.Component {
     this.props.onResultsChange({});
   }
 
+  handleSearch() {
+    this.props.onSearch();
+  }
+
+  getInputClassNames() {
+    if (!this.state.isFormValid) {
+      return 'c-nameform__input c-nameform__input--throb'
+    } else {
+      return 'c-nameform__input'
+    }
+  }
+
   // Handle form submit.
   handleSubmit = event => {
     event.preventDefault()
+    this.handleSearch()
     // See https://reactjs.org/docs/faq-ajax.html
     fetch(`http://admin.findmysong.function-designing.co.uk/lyric-lookup/${this.state.inputName}`)
       .then(response => {
@@ -78,16 +94,18 @@ export default class NameForm extends React.Component {
       onSubmit={this.handleSubmit}
     >
       <label className="c-nameform__label">My name is
-        <input
-          className="c-nameform__input"
-          size={this.state.size}
-          name="inputName"
-          onChange={this.handleInputChange}
-          required="required"
-          type="text"
-          value={this.state.inputName}
-        />,
-        <Button className="c-button c-button--big-text c-button--disabled" disabled={!this.state.isFormValid} label="find my song" />.</label>
+        <span className="c-nameform__input-wrapper">
+          <input
+            className={this.getInputClassNames()}
+            size={this.state.size}
+            name="inputName"
+            onChange={this.handleInputChange}
+            required="required"
+            type="text"
+            value={this.state.inputName}
+          />,
+        </span>
+        <Button className="c-button c-button--big-text c-button--no-left-pad c-button--disabled c-button--throb" disabled={!this.state.isFormValid} label="find my song." /></label>
     </form>
   }
 }

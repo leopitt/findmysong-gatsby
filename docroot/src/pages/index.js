@@ -10,14 +10,18 @@ export default class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.handleResultsChange = this.handleResultsChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.state = {
-      tracks: []
+      tracks: [],
+      hasBeenSearched: false,
+      isSearching: false,
     }
   }
 
   handleResultsChange(data) {
     let items =  Object.values(data);
     let tracks = [];
+
     for (let key in items) {
       let item = items[key];
       tracks.push({
@@ -26,7 +30,18 @@ export default class IndexPage extends React.Component {
         spotify_id: item.track.spotify_id,
       });
     }
-    this.setState({ tracks: tracks});
+
+    this.setState({
+      tracks: tracks,
+      hasBeenSearched: true,
+      isSearching: false,
+    });
+  }
+
+  handleSearch() {
+    this.setState({
+      isSearching: true,
+    });
   }
 
   render() {
@@ -34,8 +49,8 @@ export default class IndexPage extends React.Component {
       <Layout>
         <SEO title="Home" />
         <Intro />
-        <NameForm onResultsChange={this.handleResultsChange}/>
-        <ResultsTable tracks={this.state.tracks}/>
+        <NameForm onResultsChange={this.handleResultsChange} onSearch={this.handleSearch} />
+        <ResultsTable tracks={this.state.tracks} hasBeenSearched={this.state.hasBeenSearched} isSearching={this.state.isSearching} />
       </Layout>
     )
   }

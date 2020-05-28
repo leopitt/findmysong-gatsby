@@ -1,7 +1,40 @@
-.c-results-table {
-  max-width: 840px;
+@keyframes c-results--throbber {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
-  &__head {
-    @extend %hidden;
+.c-results {
+  &__table {
+    max-width: 840px;
+    padding: 2rem 0;
+
+    @breakpoint-min(map-get($breakpoints, 'sm-min')) {
+      padding: 74px 0;
+    }
+
+    &__head {
+      @extend %hidden;
+    }
+  }
+
+  &__no-results {
+    line-height: 1.45;
+  }
+
+  &__throbber {
+    animation-direction: alternate;
+    animation-duration: .25s;
+    animation-iteration-count: infinite;
+    animation-name: c-results--throbber;
+    background-color: map-get($colors, 'orange500');
+    border-radius: 50%;
+    height: 3rem;
+    margin: 4rem auto 0;
+    max-width: 840px;
+    width: 3rem;
   }
 }

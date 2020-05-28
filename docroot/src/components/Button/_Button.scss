@@ -1,10 +1,19 @@
+@keyframes c-button--throb {
+  from {
+    opacity: .5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .c-button {
   &--big-text {
     -webkit-appearance: none;
     background: transparent;
     border: 0;
     color: map-get($colors, 'blue500');
-    font-size: $font-size-h2;
+    font-size: $font-size-h4;
     font-weight: 800;
     text-decoration: none;
     transition: opacity .25s ease-in-out;
@@ -14,9 +23,25 @@
       cursor: pointer;
       text-decoration: underline;
     }
+
+    @include breakpoint-min(map-get($breakpoints, 'sm-min')) {
+      font-size: $font-size-h2;
+    }
+  }
+
+  &--no-left-pad {
+    padding-left: 0;
+  }
+
+  &--throb {
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: c-button--throb;
   }
 
   &[disabled] {
+    animation-name: none;
     cursor: not-allowed;
     opacity: .5;
     transition: opacity .25s ease-in-out;

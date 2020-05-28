@@ -1,14 +1,16 @@
 .c-header {
   position: relative;
 
-  &__brand,
   &__menu {
-    padding: 60px 0;
-  }
-
-  &__menu {
+    bottom: 6px;
     position: absolute;
     right: 0;
-    top: 0;
+  }
+
+  @breakpoint-min(map-get($breakpoints, 'sm-min')) {
+    &__brand,
+    &__menu {
+      padding: 3rem 0;
+    }
   }
 }

@@ -1,21 +1,49 @@
+@keyframes c-nameform--input--throb {
+  from {
+    border-bottom-color: map-get($colors, 'orange500');
+  }
+  to {
+    border-bottom-color: map-get($colors, 'black');
+  }
+}
+
 .c-nameform {
-  font-size: $font-size-h2;
+  font-size: $font-size-h4;
   font-weight: 800;
+
+  @include breakpoint-min(map-get($breakpoints, 'sm-min')) {
+    font-size: $font-size-h2;
+  }
 
   &__label {
     display: block;
-    line-height: 1.9;
+    line-height: 1.45;
     margin: 2rem 0;
+  }
+
+  &__input-wrapper {
+    padding-right: .5rem;
   }
 
   &__input {
     -webkit-appearance: none;
-    border-bottom-color: map-get($colors, 'black');
+    border-bottom-color: map-get($colors, 'orange500');
     border-width: 0 0 2px;
     color: map-get($colors, 'orange500');
-    font-size: $font-size-h2;
+    font-size: $font-size-h4;
     font-weight: 800;
     margin: 0 .5rem;
     max-width: 25rem;
+
+    @include breakpoint-min(map-get($breakpoints, 'sm-min')) {
+      font-size: $font-size-h2;
+    }
+
+    &--throb {
+      animation-direction: alternate;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-name: c-nameform--input--throb;
+    }
   }
 }

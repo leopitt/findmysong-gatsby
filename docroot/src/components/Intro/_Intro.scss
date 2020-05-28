@@ -1,6 +1,10 @@
 .c-intro {
   max-width: 840px;
-  padding: 74px 0;
+  padding: 2rem 0;
+
+  @breakpoint-min(map-get($breakpoints, 'sm-min')) {
+    padding: 74px 0;
+  }
 
   &__statement {
     &::after {
@@ -14,7 +18,7 @@
 
   &__item {
     display: inline;
-    font-size: $font-size-h1;
+    font-size: $font-size-h3;
     font-weight: 800;
 
     @media (min-width: map-get($breakpoints, 'sm-min')) {
