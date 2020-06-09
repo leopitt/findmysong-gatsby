@@ -7,7 +7,7 @@ const AboutPage = () => (
   <Layout>
     <SEO title="About" description="About Find My Song." />
     <h1 className="page__h1">About</h1>
-    <p>Developed as a Gatsby &amp; React learning exercise by <a href="https://github.com/leopitt">Leo Pitt</a>.</p>
+    <p>Developed as a Gatsby &amp; React learning exercise by <a href="https://github.com/leopitt" target="_blank">Leo Pitt</a>.</p>
     <h2 className="page__h2">Built with ...</h2>
     <ul>
       <li><a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a></li>
