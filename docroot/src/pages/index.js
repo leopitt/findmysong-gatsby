@@ -47,7 +47,7 @@ export default class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" />
+        <SEO title="Home" description="Use this site to find songs with your name in the lyrics." />
         <Intro />
         <NameForm onResultsChange={this.handleResultsChange} onSearch={this.handleSearch} />
         <ResultsTable tracks={this.state.tracks} hasBeenSearched={this.state.hasBeenSearched} isSearching={this.state.isSearching} />

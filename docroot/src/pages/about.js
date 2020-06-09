@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 const AboutPage = () => (
   <Layout>
-    <SEO title="About" />
+    <SEO title="About" description="About Find My Song." />
     <h1 className="page__h1">About</h1>
     <p>Developed as a Gatsby &amp; React learning exercise by <a href="https://github.com/leopitt">Leo Pitt</a>.</p>
     <h2 className="page__h2">Built with ...</h2>
