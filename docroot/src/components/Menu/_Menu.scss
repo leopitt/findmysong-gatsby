@@ -4,5 +4,9 @@
     font-family: $font-family-sans-serif-secondary;
     font-weight: 500;
     text-decoration: none;
+
+    &[aria-current="page"] {
+      color: map-get($colors, 'orange500');
+    }
   }
 }

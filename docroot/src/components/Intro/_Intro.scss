@@ -1,6 +1,6 @@
 .c-intro {
   max-width: 840px;
-  padding: 2rem 0;
+  margin: 2rem 0;
 
   @breakpoint-min(map-get($breakpoints, 'sm-min')) {
     padding: 74px 0;

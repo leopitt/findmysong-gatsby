@@ -93,7 +93,7 @@ export default class NameForm extends React.Component {
       className="c-nameform"
       onSubmit={this.handleSubmit}
     >
-      <label className="c-nameform__label">My name is
+      <label className="c-nameform__label"><span className="c-nameform__label__inner">My name is</span>
         <span className="c-nameform__input-wrapper">
           <input
             className={this.getInputClassNames()}
@@ -103,7 +103,7 @@ export default class NameForm extends React.Component {
             required="required"
             type="text"
             value={this.state.inputName}
-          />,
+          />.
         </span>
         <Button className="c-button c-button--big-text c-button--no-left-pad c-button--disabled c-button--throb" disabled={!this.state.isFormValid} label="find my song." /></label>
     </form>

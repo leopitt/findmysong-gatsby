@@ -25,4 +25,13 @@
       @extend %hidden;
     }
   }
+
+  &__spotify {
+    background: transparent url('../images/spotify-icon.png') no-repeat top left/cover;
+    display: block;
+    height: 25px;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 25px;
+  }
 }
