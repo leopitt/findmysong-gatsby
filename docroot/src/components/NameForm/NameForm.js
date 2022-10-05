@@ -73,7 +73,7 @@ export default class NameForm extends React.Component {
     event.preventDefault()
     this.handleSearch()
     // See https://reactjs.org/docs/faq-ajax.html
-    fetch(`http://admin.findmysong.function-designing.co.uk/lyric-lookup/${this.state.inputName}`)
+    fetch(`//admin.findmysong.function-designing.co.uk/lyric-lookup/${this.state.inputName}`)
       .then(response => {
         if (response.status !== 200) {
           console.log('Response status not 200. Status Code: ' +
